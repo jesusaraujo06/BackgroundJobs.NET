@@ -35,9 +35,17 @@ namespace BackgroundJobs.Client.Controllers
         [HttpGet("CreateRecurring")]
         public ActionResult Recurring()
         {
+            RecurringJob.AddOrUpdate("Tarea 1", () => Console.WriteLine("Tarea reucurring ejecutada"), Cron.Minutely);
+            return Ok();
+        }
+
+        [HttpGet("CreateRecurring2")]
+        public ActionResult Recurring2()
+        {
             RecurringJob.AddOrUpdate("Tarea 2", () => Console.WriteLine("Tarea reucurring ejecutada"), Cron.Minutely);
             return Ok();
         }
 
     }
 }
+
