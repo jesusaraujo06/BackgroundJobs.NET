@@ -5,13 +5,13 @@ namespace BackgroundJobs.Client.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class JobsController : ControllerBase
+    public class ReportSubscriptionController : ControllerBase
     {
         private readonly IBackgroundJobClient BackgroundJobClient;
 
-        private readonly ILogger<JobsController> _logger;
+        private readonly ILogger<ReportSubscriptionController> _logger;
 
-        public JobsController(ILogger<JobsController> logger, IBackgroundJobClient backgroundJobClient)
+        public ReportSubscriptionController(ILogger<ReportSubscriptionController> logger, IBackgroundJobClient backgroundJobClient)
         {
             _logger = logger;
             BackgroundJobClient = backgroundJobClient;
