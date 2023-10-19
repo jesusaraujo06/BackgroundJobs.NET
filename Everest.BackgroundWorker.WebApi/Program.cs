@@ -16,7 +16,7 @@ builder.Services.AddSwaggerGen(c =>
     {
         Version = "v1",
         Title = "Everest.BackgroundWorker.01.WebApi",
-        Description = "WebApi para crear tareas en tareas en segundo plano en el BackgroundWorker.01",
+        Description = "WebApi para crear tareas en tareas en segundo plano en el BackgroundWorker.01, para monitorear las tareas acceder a: /dashboard-jobs",
     });
 });
 
@@ -30,7 +30,7 @@ builder.Services.AddHangfire(configuration => configuration
         .UseRecommendedSerializerSettings()
         .UseSqlServerStorage(connectionString, new SqlServerStorageOptions
         {
-            SchemaName = "Jobs01",
+            SchemaName = "dbo",
             CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
             SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
             QueuePollInterval = TimeSpan.Zero,
@@ -51,9 +51,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHangfireDashboard();
-app.MapHangfireDashboard("/jobs", new DashboardOptions()
+app.MapHangfireDashboard("/dashboard-jobs", new DashboardOptions()
 {
-    DashboardTitle = "Everest Jobs",
+    DashboardTitle = "Dashboard Everest.BackgroundWorker.01",
 });
 
 app.UseHttpsRedirection();

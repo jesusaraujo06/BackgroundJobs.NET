@@ -9,7 +9,17 @@
     }
   },
   "profiles": {
-    "BackgroundJobs.Client": {
+    "BackgroundWorker.Run.Dev": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "https://localhost:7153;http://localhost:5126",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "BackgroundWorker.Run.Prod": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
